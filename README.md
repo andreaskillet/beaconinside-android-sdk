@@ -91,10 +91,10 @@ background till BeaconService.terminate() is called.
 The SDK has multiple triggers to start the scanning of beacons in the background.
 
 Play Services version
-- Once when the device screen is turned on for 2,5 Seconds
-- Once every 30 Minutes for 2,5 Seconds
+- Once when the device screen is turned on for 2,5 seconds
+- Once every 30 minutes for 2,5 seconds
 - Continuously if the device is moving
 
 Plain version
-- Once when the device screen is turned on for 2,5 Seconds
-- Once every 5 Minutes for 2,5 Seconds
+- Once when the device screen is turned on for 2,5 seconds
+- Once every 5 minutes for 2,5 seconds
