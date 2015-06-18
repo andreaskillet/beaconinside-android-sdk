@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.beaconinside.androidsdk"
+    version="0.9">
+    <name>BeaconinsideSDK</name>
+    <description>Beaconinside SDK Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,bluetooth</keywords>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="BeaconinsideSDK" >
+                <param name="android-package" value="com.beaconinside.androidsdk.SdkPlugin"/>
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+        <source-file src="SdkPlugin.java" target-dir="src/com/beaconinside/androidsdk" />
+
+        <framework src="com.android.support:support-v4:+" />
+
+        <framework src="beaconinside-sdk" custom="true" />
+
+    </platform>
+
+</plugin>

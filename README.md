@@ -10,11 +10,11 @@ and support Bluetooth Low Energy (Bluetooth 4.0).
 
 The SDK has two different AAR Files.
 
-*   beaconinside-androidsdk-playservices.aar
+*   beaconinside-sdk-playservices.aar
 
     Recommended: Needs Google Play Services for better beacon detection with lower power consumption
 
-*   beaconinside-androidsdk-plain.aar
+*   beaconinside-sdk-basic.aar
 
     Normal SDK without dependencies. Beacon detection will be started when the screen turns on and every 5 minutes to save battery. If a faster detection is needed you have to use the Google Play Services version.
 
@@ -24,14 +24,14 @@ Permissions
 
 Importing the library automatically adds all the needed permissions to your app if not already used.
 
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <uses-permission android:name="android.permission.INTERNET" />
+    android.permission.RECEIVE_BOOT_COMPLETED
+    android.permission.BLUETOOTH
+    android.permission.BLUETOOTH_ADMIN
+    android.permission.INTERNET
 
-Play Services version additional permissions
+The Play Services version uses additional permissions
 
-    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION"/>
+    com.google.android.gms.permission.ACTIVITY_RECOGNITION
 
 Install
 --
@@ -48,7 +48,8 @@ Install
 
 3. Make sure that you have the play services as dependency if you are using the play service version of the Beaconinside SDK. You need the following line in your gradle file.
 
-        compile 'com.google.android.gms:play-services-location:6.5.87'
+        compile 'com.google.android.gms:play-services-location:7.5.0'
+        compile 'com.google.android.gms:play-services-ads:7.5.0'
 
 
 ###Gradle
@@ -62,11 +63,12 @@ Copy the AAR file to your app/libs folder and paste following code in your build
     }
 
     dependencies {
-        compile 'com.beaconinside:beaconinside-androidsdk-playservices@aar'
-        compile 'com.google.android.gms:play-services-location:6.5.87'
+        compile 'com.beaconinside:beaconinside-sdk-playservices@aar'
+        compile 'com.google.android.gms:play-services-location:7.5.0'
+        compile 'com.google.android.gms:play-services-ads:7.5.0'
 
         // for the version without play services use following line
-        // compile 'com.beaconinside:beaconinside-androidsdk-plain@aar'
+        // compile 'com.beaconinside:beaconinside-sdk-plain@aar'
     }
 
 
@@ -95,6 +97,6 @@ Play Services version
 - Once every 30 minutes for 2,5 seconds
 - Continuously if the device is moving
 
-Plain version
+Basic version
 - Once when the device screen is turned on for 2,5 seconds
 - Once every 5 minutes for 2,5 seconds
