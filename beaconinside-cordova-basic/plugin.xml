@@ -5,7 +5,6 @@
     version="0.9">
     <name>BeaconinsideSDK</name>
     <description>Beaconinside SDK Plugin</description>
-    <license>Apache 2.0</license>
     <keywords>cordova,bluetooth</keywords>
 
     <!-- android -->
