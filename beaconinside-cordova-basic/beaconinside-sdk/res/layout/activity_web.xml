@@ -16,4 +16,4 @@
         android:layout_gravity="right|top"
         android:src="@drawable/ic_close_icon"
         android:padding="8dp" />
-</FrameLayout><!-- From: file:/workdir/androidsdk/src/main/res/layout/activity_web.xml -->
+</FrameLayout>

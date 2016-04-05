@@ -48,28 +48,8 @@ Install
 
 3. Make sure that you have the play services as dependency if you are using the play service version of the Beaconinside SDK. You need the following line in your gradle file.
 
-        compile 'com.google.android.gms:play-services-location:7.5.0'
-        compile 'com.google.android.gms:play-services-ads:7.5.0'
-
-
-###Gradle
-
-Copy the AAR file to your app/libs folder and paste following code in your build.gradle
-
-    repositories{
-        flatDir {
-            dirs 'libs'
-        }
-    }
-
-    dependencies {
-        compile 'com.beaconinside:beaconinside-sdk-playservices@aar'
-        compile 'com.google.android.gms:play-services-location:7.5.0'
-        compile 'com.google.android.gms:play-services-ads:7.5.0'
-
-        // for the version without play services use following line
-        // compile 'com.beaconinside:beaconinside-sdk-plain@aar'
-    }
+        compile 'com.google.android.gms:play-services-location:8.4.0'
+        compile 'com.google.android.gms:play-services-ads:8.4.0'
 
 
 Using
