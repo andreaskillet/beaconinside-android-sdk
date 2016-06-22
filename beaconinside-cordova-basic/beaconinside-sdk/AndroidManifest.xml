@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.beaconinside.androidsdk"
     android:versionCode="17"
-    android:versionName="2.2.4" >
+    android:versionName="2.3.0" >
 
     <uses-sdk
         android:minSdkVersion="9"
@@ -13,7 +13,7 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <uses-permission-sdk-23 android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application android:fullBackupContent="false" >
         <service
