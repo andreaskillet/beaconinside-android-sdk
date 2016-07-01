@@ -96,25 +96,34 @@ protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    BeaconService.init(this, null);
+    BeaconService.init(this, API_TOKEN);
 
     mFilter = new IntentFilter();
     mFilter.addAction(BeaconService.INTENT_BEACON_REGION_ENTER);
     mFilter.addAction(BeaconService.INTENT_BEACON_REGION_EXIT);
     mFilter.addAction(BeaconService.INTENT_BEACON_REGION_UPDATE);
+    mFilter.addAction(BeaconService.INTENT_CAMPAIGN_NOTIFICATION);
+    mFilter.addAction(BeaconService.INTENT_CAMPAIGN_CONVERSION);
 
     mReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            String beaconId = intent.getStringExtra("BeaconID");
-            String action = intent.getAction();
-            if (BeaconService.INTENT_BEACON_REGION_ENTER.equals(action)) {
-                Log.d(TAG, "REGION ENTER " + beaconId);
-            } else if (BeaconService.INTENT_BEACON_REGION_EXIT.equals(action)) {
-                Log.d(TAG, "REGION EXIT " + beaconId);
-            } else if (BeaconService.INTENT_BEACON_REGION_UPDATE.equals(action)) {
-                Log.d(TAG, "REGION UPDATE rssi: " + intent.getIntExtra(BeaconService.INTENT_EXTRA_RSSI, 0)
-                        + " proximity: " + intent.getStringExtra(BeaconService.INTENT_EXTRA_PROXIMITY));
+            switch (intent.getAction()) {
+                case BeaconService.INTENT_BEACON_REGION_ENTER:
+                    Log.d(TAG, "REGION ENTER " + intent.getExtras().toString());
+                    break;
+                case BeaconService.INTENT_BEACON_REGION_EXIT:
+                    Log.d(TAG, "REGION EXIT " + intent.getStringExtra(BeaconService.INTENT_EXTRA_BEACON_ID));
+                    break;
+                case BeaconService.INTENT_BEACON_REGION_UPDATE:
+                    Log.d(TAG, "REGION UPDATE rssi: " + intent.getIntExtra(BeaconService.INTENT_EXTRA_RSSI, 0)
+                            + " proximity: " + intent.getStringExtra(BeaconService.INTENT_EXTRA_PROXIMITY));
+                    break;
+                case BeaconService.INTENT_CAMPAIGN_NOTIFICATION:
+                    Log.d(TAG, "CAMPAIGN NOTIFICATION: " + intent.getExtras());
+                    break;
+                case BeaconService.INTENT_CAMPAIGN_CONVERSION:
+                    Log.d(TAG, "CAMPAIGN CONVERSION: " + intent.getStringExtra(BeaconService.INTENT_EXTRA_CAMPAIGN_ID));
             }
         }
     };
